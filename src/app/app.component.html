@@ -1,0 +1,30 @@
+<div class="center">
+
+  <div>
+    <img [@flipState]='state'
+    (@flipState.done)=" rotate()"
+    [src]="imageArray[count%imageArray.length]">
+  </div>
+
+  <div>
+    <img [@enterExitLeft]="toogle4"
+    (@enterExitLeft.done)=" animate4($event)"
+    [src]="imageArray[count4%imageArray.length]">
+
+    <img [@fade]="toogle"  
+    (@fade.done)=" animate($event)"  
+    [src]="imageArray[count%imageArray.length]">
+
+    <img [@enterExitRight]="toogle3"
+    (@enterExitRight.done)=" animate3($event)"
+    [src]="imageArray[count3%imageArray.length]">
+  </div>
+
+  <img [@slide]="toogle2" 
+  (@slide.done)="animate2($event)"
+  [src]="imageArray[count2%imageArray.length]">
+</div>
+
+
+
+
