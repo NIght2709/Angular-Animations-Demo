@@ -75,7 +75,50 @@ import { flush } from '@angular/core/testing';
       })),
       transition('active => inactive', animate('2000ms ease-out')),
       transition('inactive => active', animate('2000ms ease-in'))
-    ])
+    ]),
+    trigger('bounceInOut', [
+      transition('* => false', [
+        style({ transform: 'scale(0)', opacity: 1}),
+        animate('1500ms cubic-bezier(.8, 0.2, 0.2, 0.2)',
+        style({ transform: 'scale(1)', opacity: 1 }))
+      ]),
+      transition('* => true', [
+        style({ transform: 'scale(1)', opacity: 1 }),
+        animate('1500ms cubic-bezier(.8, 0.2, 0.2, 0.2)',
+        style({ transform: 'scale(0)', opacity: 1 }))
+      ])
+    ]),
+    trigger('zoomInRight', [
+      transition('*=>true',[
+        style({
+          opacity: 0,
+          transform: 'scale3d(0.1, 0.1, 0.1) translate3d(800px, 0, 0)'}),
+        animate('1500ms cubic-bezier(0.55, 0, 0, 0.19)',
+        style({transform: 'scale(1 )',opacity: 1}))
+      ]),
+      transition('*=>false',[
+        style({
+          opacity: 1,
+          transform: 'scale(1, 1, 1) '}),
+        animate('1500ms cubic-bezier(0.55, 0, 0, 0.19)',
+        style({transform:'scale(0) translate3d(-800px, 0, 0)',opacity: 0})),
+      ])
+    ]),
+    trigger('rollInOut',[
+      transition('*=>true',[
+        style({
+          opacity:0,
+          transform: 'translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg)'}),
+          animate('2000ms cubic-bezier(0, 0, 0, 1)',
+          style({ opacity: '1', transform:'scale(1) translate3d(0, 0, 0)' }))
+      ]),
+      transition('*=>false',[
+          animate('2000ms cubic-bezier(0, 0, 0, 0.1)',
+          style({ 
+            opacity: '0', 
+            transform: 'scale(1) translate3d(100%, 0, 0) rotate3d(0,0 , 1,120deg)' }))
+      ])
+    ]),
   ]
 })
 export class AppComponent {
@@ -91,14 +134,20 @@ export class AppComponent {
     "https://picsum.photos/200/300?random=6"
   ];
 
-  toogle = true;;
+  toogle = true;
   count: number = 0;
-  toogle2 = true;;
+  toogle2 = true;
   count2: number = 0;
-  toogle3 = true;;
+  toogle3 = true;
   count3: number = 0;
-  toogle4 = true;;
+  toogle4 = true;
   count4: number = 0;
+  toogle5 = true;
+  count5: number = 0;
+  toogle6 = true;
+  count6: number = 0;
+  toogle7 = true;
+  toogle8 = true;
   
   animate(event:any) {
     this.toogle = !this.toogle;
@@ -122,9 +171,29 @@ export class AppComponent {
   }
 
   state: string = 'inactive';
-    rotate() {
-      this.state = (this.state === 'active' ? 'inactive' : 'active');
-    }
+  rotate() {
+    this.state = (this.state === 'active' ? 'inactive' : 'active');
+  }
+  animate5(event:any) {
+    this.toogle5 = !this.toogle5;
+    if(event.fromState)
+      this.count5 =(this.count5+1)% this.imageArray.length;  
+  }
+  animate6(event:any) {
+    this.toogle6 = !this.toogle6;
+    if(event.fromState)
+      this.count5 =(this.count5+1)% this.imageArray.length;  
+  }
+  animate7(event:any) {
+    this.toogle7 = !this.toogle7;
+    if(event.fromState)
+      this.count5 =(this.count5+1)% this.imageArray.length;  
+  }
+  animate8(event:any) {
+    this.toogle8 = !this.toogle8;
+    if(event.fromState)
+      this.count5 =(this.count5+1)% this.imageArray.length;  
+  }
   
 }
 

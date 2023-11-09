@@ -1,9 +1,9 @@
 <div class="center">
 
   <div>
-    <img [@flipState]='state'
-    (@flipState.done)=" rotate()"
-    [src]="imageArray[count%imageArray.length]">
+    <img [@zoomInRight]='toogle6'
+    (@zoomInRight.done)=" animate6($event)"
+    [src]="imageArray[count5%imageArray.length]">
   </div>
 
   <div>
@@ -23,7 +23,24 @@
   <img [@slide]="toogle2" 
   (@slide.done)="animate2($event)"
   [src]="imageArray[count2%imageArray.length]">
+
+  <img [@bounceInOut]='toogle5'
+  (@bounceInOut.done)=" animate5($event)"
+  [src]="imageArray[count5%imageArray.length]">
+
+  <img [@flipState]='state'
+  (@flipState.done)=" rotate()"
+  [src]="imageArray[count%imageArray.length]">
+
+  <div>
+    <img [@rollInOut]='toogle7'
+  (@rollInOut.done)="animate7($event)"
+  [src]="imageArray[count5%imageArray.length]">
+  </div>
+
 </div>
+
+
 
 
 
