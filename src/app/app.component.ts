@@ -157,22 +157,23 @@ export class AppComponent {
   ];
 
   toogle = true;
-  count: number = 0;
   toogle2 = true;
-  count2: number = 0;
   toogle3 = true;
-  count3: number = 0;
   toogle4 = true;
-  count4: number = 0;
   toogle5 = true;
-  count5: number = 0;
   toogle6 = true;
-  count6: number = 0;
   toogle7 = true;
   toogle8 = true;
   toogle9 = true;
-  
-  animate(event:any) {
+
+  state: string = 'inactive';
+
+  count: number = 0;
+
+  animate0() {
+    this.state = (this.state === 'active' ? 'inactive' : 'active');
+  }
+  animate1(event:any) {
     this.toogle = !this.toogle;
     if(event.fromState)
       this.count =(this.count+1)% this.imageArray.length;  
@@ -180,47 +181,42 @@ export class AppComponent {
   animate2(event:any) {
     this.toogle2 = !this.toogle2;
     if(event.fromState)
-      this.count2 =(this.count2+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate3(event:any) {
     this.toogle3 = !this.toogle3;
     if(event.fromState)
-      this.count3 =(this.count3+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate4(event:any) {
     this.toogle4 = !this.toogle4;
     if(event.fromState)
-      this.count4 =(this.count4+1)% this.imageArray.length;  
-  }
-
-  state: string = 'inactive';
-  rotate() {
-    this.state = (this.state === 'active' ? 'inactive' : 'active');
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate5(event:any) {
     this.toogle5 = !this.toogle5;
     if(event.fromState)
-      this.count5 =(this.count5+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate6(event:any) {
     this.toogle6 = !this.toogle6;
     if(event.fromState)
-      this.count5 =(this.count5+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate7(event:any) {
     this.toogle7 = !this.toogle7;
     if(event.fromState)
-      this.count5 =(this.count5+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate8(event:any) {
     this.toogle8 = !this.toogle8;
     if(event.fromState)
-      this.count5 =(this.count5+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   animate9(event:any) {
     this.toogle9 = !this.toogle9;
     if(event.fromState)
-      this.count5 =(this.count5+1)% this.imageArray.length;  
+      this.count =(this.count+1)% this.imageArray.length;  
   }
   
 }
