@@ -32,6 +32,10 @@
   (@flipState.done)=" rotate()"
   [src]="imageArray[count%imageArray.length]">
 
+  <img [@rotateInOut]='toogle9'
+  (@rotateInOut.done)="animate9($event)"
+  [src]="imageArray[count5%imageArray.length]">
+
   <div>
     <img [@rollInOut]='toogle7'
   (@rollInOut.done)="animate7($event)"

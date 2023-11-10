@@ -119,6 +119,28 @@ import { flush } from '@angular/core/testing';
             transform: 'scale(1) translate3d(100%, 0, 0) rotate3d(0,0 , 1,120deg)' }))
       ])
     ]),
+    trigger('rotateInOut',[
+      transition('*=>true',[
+        style({
+          opacity:0,
+          transform:'rotate3d(0, 0, 1, -200deg) translate3d(0, 0, 0)'}),
+        animate('2000ms cubic-bezier(0, 0, 0, 1)',
+        style({
+          transform:'translate(0, 0, 0)',
+          opacity:1
+        })),
+      ]),
+      transition('*=>false',[
+        style({
+          opacity:1,
+        }),
+        animate('2000ms cubic-bezier(0, 0, 0, 0.1)',
+        style({
+          transform:'translate(0, 0, 0) rotate3d(0, 0, 0, -200deg translate3d(100%, 0, 0)',
+          opacity:1
+        }))
+      ])
+    ])
   ]
 })
 export class AppComponent {
@@ -148,6 +170,7 @@ export class AppComponent {
   count6: number = 0;
   toogle7 = true;
   toogle8 = true;
+  toogle9 = true;
   
   animate(event:any) {
     this.toogle = !this.toogle;
@@ -191,6 +214,11 @@ export class AppComponent {
   }
   animate8(event:any) {
     this.toogle8 = !this.toogle8;
+    if(event.fromState)
+      this.count5 =(this.count5+1)% this.imageArray.length;  
+  }
+  animate9(event:any) {
+    this.toogle9 = !this.toogle9;
     if(event.fromState)
       this.count5 =(this.count5+1)% this.imageArray.length;  
   }
