@@ -10,6 +10,7 @@ import {
   // ...
 } from '@angular/animations';
 import { flush } from '@angular/core/testing';
+import { delay, timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -93,9 +94,13 @@ import { flush } from '@angular/core/testing';
         style({
           opacity: 0,
           transform: 'scale3d(0.1, 0.1, 0.1) translate3d(800px, 0, 0)'}),
-        animate('1500ms cubic-bezier(0.55, 0, 0, 0.19)',
-        style({transform: 'scale(1 )',opacity: 1}))
+        animate('2s cubic-bezier(0.55, 0, 0, 0.19)',
+        style({transform: 'scale(1)',opacity: 1})),
+        animate('5s',
+        style({transform: 'scale(1)',opacity: 1}))
       ]),
+    ]),
+    trigger('zoomOutRight',[
       transition('*=>false',[
         style({
           opacity: 1,
@@ -156,70 +161,87 @@ export class AppComponent {
     "https://picsum.photos/200/300?random=6"
   ];
 
-  toogle = true;
-  toogle2 = true;
-  toogle3 = true;
-  toogle4 = true;
-  toogle5 = true;
-  toogle6 = true;
-  toogle7 = true;
-  toogle8 = true;
-  toogle9 = true;
+  imageArray2=[
+    "../assets/image/bgl-eservice.gif?random=1",
+    "../assets/image/bgl-eservice.jpg?random=2",
+    "../assets/image/bgl-nayok.jpg?random=3",
+    "../assets/image/bgl-slide.jpg?random=4"
+  ];
 
-  state: string = 'inactive';
+  // toogle = true;
+  // toogle2 = true;
+  // toogle3 = true;
+  // toogle4 = true;
+  // toogle5 = true;
+  // toogle6 = true;
+  // toogle7 = false;
+  // toogle8 = true;
+  // toogle9 = true;
+  toogle10 = true;
 
-  count: number = 0;
+  // state: string = 'inactive';
 
-  animate0() {
-    this.state = (this.state === 'active' ? 'inactive' : 'active');
-  }
-  animate1(event:any) {
-    this.toogle = !this.toogle;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate2(event:any) {
-    this.toogle2 = !this.toogle2;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate3(event:any) {
-    this.toogle3 = !this.toogle3;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate4(event:any) {
-    this.toogle4 = !this.toogle4;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate5(event:any) {
-    this.toogle5 = !this.toogle5;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate6(event:any) {
-    this.toogle6 = !this.toogle6;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate7(event:any) {
-    this.toogle7 = !this.toogle7;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate8(event:any) {
-    this.toogle8 = !this.toogle8;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
-  }
-  animate9(event:any) {
-    this.toogle9 = !this.toogle9;
-    if(event.fromState)
-      this.count =(this.count+1)% this.imageArray.length;  
+  // count: number = 0;
+  // count1: number = 0;
+  count2: number=0;
+
+  // animate0() {
+  //   this.state = (this.state === 'active' ? 'inactive' : 'active');
+  // }
+  // animate1(event:any) {
+  //   this.toogle = !this.toogle;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  // animate2(event:any) {
+  //   this.toogle2 = !this.toogle2;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  // animate3(event:any) {
+  //   this.toogle3 = !this.toogle3;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  // animate4(event:any) {
+  //   this.toogle4 = !this.toogle4;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  // animate5(event:any) {
+  //   this.toogle5 = !this.toogle5;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  
+  // animate6(event:any) {
+  //   if(event.fromState){
+  //     this.count1 =(this.count1+1)% this.imageArray.length; }
+  //     this.toogle6 = !this.toogle6;
+  // }
+  // animate7(event:any) {
+  //   this.toogle7 = !this.toogle7;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  // animate8(event:any) {
+  //   this.toogle8 = !this.toogle8;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  // animate9(event:any) {
+  //   this.toogle9 = !this.toogle9;
+  //   if(event.fromState)
+  //     this.count =(this.count+1)% this.imageArray.length;  
+  // }
+  animate10(event:any) {
+    if(event.fromState){
+      this.count2 =(this.count2+1)% this.imageArray2.length }
+      this.toogle10 = !this.toogle10;
   }
   
 }
+
 
 
   

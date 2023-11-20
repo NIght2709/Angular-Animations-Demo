@@ -1,48 +1,68 @@
-<div class="center">
+<body>
+  <div class="center">
 
-  <div>
-    <img [@zoomInRight]='toogle6'
-    (@zoomInRight.done)=" animate6($event)"
+    <!-- <div>
+      <img [@zoomInRight]='toogle6'
+      (@zoomInRight.done)="toogle6=false"
+      [@zoomOutRight]='toogle6'
+      (@zoomOutRight.done)="count1"
+      [@zoomOutRight]='toogle6'
+      (@zoomOutRight.done)="animate6($event)"
+      (@zoomOutRight.done)="toogle6=true"
+      [src]="imageArray[count1%imageArray.length]"
+      >
+    </div> -->
+
+    <!-- <div>
+      <img [@enterExitLeft]="toogle4"
+      (@enterExitLeft.done)=" animate4($event)"
+      [src]="imageArray[count%imageArray.length]">
+
+      <img [@fade]="toogle"  
+      (@fade.done)=" animate1($event)"  
+      [src]="imageArray[count%imageArray.length]">
+
+      <img [@enterExitRight]="toogle3"
+      (@enterExitRight.done)=" animate3($event)"
+      [src]="imageArray[count%imageArray.length]">
+    </div>
+
+    <img [@slide]="toogle2" 
+    (@slide.done)="animate2($event)"
     [src]="imageArray[count%imageArray.length]">
+
+    <img [@bounceInOut]='toogle5'
+    (@bounceInOut.done)=" animate5($event)"
+    [src]="imageArray[count%imageArray.length]">
+
+    <img [@flipState]='state'
+    (@flipState.done)=" animate0()"
+    [src]="imageArray[count%imageArray.length]">
+
+    <img [@rotateInOut]='toogle9'
+    (@rotateInOut.done)="animate9($event)"
+    [src]="imageArray[count%imageArray.length]">
+
+    <div>
+      <img [@rollInOut]='toogle7'
+    (@rollInOut.done)="animate7($event)"
+    [src]="imageArray[count%imageArray.length]">
+    </div> -->
+
+    <div class="_zoomIn_Out_right">
+      <img [@zoomInRight]='toogle10'
+      (@zoomInRight.done)="toogle10=false"
+      [@zoomOutRight]='toogle10'
+      (@zoomOutRight.done)="count2"
+      [@zoomOutRight]='toogle10'
+      (@zoomOutRight.done)="animate10($event)"
+      (@zoomOutRight.done)="toogle10=true"
+      [src]="imageArray2[count2%imageArray2.length]"
+      >
+    </div>
+
   </div>
-
-  <div>
-    <img [@enterExitLeft]="toogle4"
-    (@enterExitLeft.done)=" animate4($event)"
-    [src]="imageArray[count%imageArray.length]">
-
-    <img [@fade]="toogle"  
-    (@fade.done)=" animate1($event)"  
-    [src]="imageArray[count%imageArray.length]">
-
-    <img [@enterExitRight]="toogle3"
-    (@enterExitRight.done)=" animate3($event)"
-    [src]="imageArray[count%imageArray.length]">
-  </div>
-
-  <img [@slide]="toogle2" 
-  (@slide.done)="animate2($event)"
-  [src]="imageArray[count%imageArray.length]">
-
-  <img [@bounceInOut]='toogle5'
-  (@bounceInOut.done)=" animate5($event)"
-  [src]="imageArray[count%imageArray.length]">
-
-  <img [@flipState]='state'
-  (@flipState.done)=" animate0()"
-  [src]="imageArray[count%imageArray.length]">
-
-  <img [@rotateInOut]='toogle9'
-  (@rotateInOut.done)="animate9($event)"
-  [src]="imageArray[count%imageArray.length]">
-
-  <div>
-    <img [@rollInOut]='toogle7'
-  (@rollInOut.done)="animate7($event)"
-  [src]="imageArray[count%imageArray.length]">
-  </div>
-
-</div>
+</body>
 
 
 
